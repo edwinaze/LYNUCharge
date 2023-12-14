@@ -1,19 +1,9 @@
 <script>
-import '@/assets/css/fonts.css'
-import '@/assets/css/bootstrap.min.css'
-import '@/assets/css/font-awesome.min.css'
-import '@/assets/css/icofont.min.css'
-import '@/assets/css/swiper.min.css'
-import '@/assets/css/nice-select.css'
-import '@/assets/css/style.css'
 
-import '@/assets/js/swiper.min'
-import '@/assets/js/jquery.min'
-import '@/assets/js/bootstrap.min'
 import axios from"axios"
 import ChargeRow from "@/components/ChargeRow.vue";
 
-axios.defaults.baseURL = "http://localhost:8080"
+axios.defaults.baseURL = "http://120.26.65.225"
 
 export default {
   components: [ChargeRow],
@@ -22,7 +12,8 @@ export default {
       behindDepartment: [],
       dormitory: [],
       behindDepartmentName: '榴园信息技术学院后',
-      dormitoryName: '榴园宿舍后'
+      dormitoryName: '榴园宿舍后',
+      isLoaded: true
     }
   },
   methods: {
@@ -32,12 +23,13 @@ export default {
           axios.get("/api/liu/behindDepartment"),
           axios.get("/api/liu/dormitory")
         ]);
-
+        this.isLoaded  =false;
         this.behindDepartment = responses[0].data;
         this.dormitory = responses[1].data;
       } catch (error) {
         // 处理错误
         console.error("Error fetching data: ", error);
+        this.isLoaded  =false;
       }
     }
 
@@ -66,8 +58,8 @@ export default {
             </div>
           </div>
         </div>
-        <ChargeRow :devices="behindDepartment" :name="behindDepartmentName"/>
-        <ChargeRow :devices="dormitory" :name="dormitoryName"/>
+        <ChargeRow :devices="behindDepartment" :name="behindDepartmentName" :is-loaded="isLoaded"/>
+        <ChargeRow :devices="dormitory" :name="dormitoryName" :is-loaded="isLoaded"/>
         <Footer/>
       </div>
     </div>

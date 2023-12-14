@@ -3,11 +3,11 @@
 </script>
 
 <template>
-<!--  <div class="loader">-->
+  <div class="loader">
     <div class="spinner" >
       <img src="@/assets/picture/loader.gif" alt="">
     </div>
-<!--  </div>-->
+  </div>
 </template>
 
 <style scoped>

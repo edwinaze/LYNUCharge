@@ -1,19 +1,9 @@
 <script>
-import '@/assets/css/fonts.css'
-import '@/assets/css/bootstrap.min.css'
-import '@/assets/css/font-awesome.min.css'
-import '@/assets/css/icofont.min.css'
-import '@/assets/css/swiper.min.css'
-import '@/assets/css/nice-select.css'
-import '@/assets/css/style.css'
 
-import '@/assets/js/swiper.min'
-import '@/assets/js/jquery.min'
-import '@/assets/js/bootstrap.min'
 import axios from"axios"
 import ChargeRow from "@/components/ChargeRow.vue";
 
-axios.defaults.baseURL = "http://localhost:8080"
+axios.defaults.baseURL = "http://120.26.65.225"
 
 export default {
   components: [ChargeRow],
@@ -31,7 +21,18 @@ export default {
     }
   },
   methods: {
-    async getAll() {
+    // async getAll() {
+    //   this.mid = await axios.get("/api/zao/mid")
+    //   this.mid = this.mid.data
+    //   this.midIsLoaded = false
+    //   this.backOne = await axios.get("/api/zao/backOne")
+    //   this.backOne = this.backOne.data
+    //   this.backOneIsLoaded= false
+    //   this.backTwo = await axios.get("/api/zao/backTwo")
+    //   this.backTwo = this.backTwo.data
+    //   this.backTwoIsLoaded= false
+    // }
+async getAll() {
       try {
         const responses = await Promise.all([
           axios.get("/api/zao/mid"),
