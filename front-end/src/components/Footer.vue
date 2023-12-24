@@ -4,7 +4,7 @@
 
 <template>
   <div class="ad-footer-btm">
-    <p>Copyright © 2021.Company name All rights reserved.<a target="_blank" href="https://sc.chinaz.com/moban/">网页模板</a></p>
+    <p>Copyright © 2023. EdwinAze All rights reserved.</p>
   </div>
 </template>
 
