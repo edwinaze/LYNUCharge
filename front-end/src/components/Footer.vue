@@ -4,7 +4,7 @@
 
 <template>
   <div class="ad-footer-btm">
-    <p>Copyright © 2023. EdwinAze All rights reserved.</p>
+    <p><a href="https://beian.miit.gov.cn/">豫ICP备2023039095号-1</a></p>
   </div>
 </template>
 
