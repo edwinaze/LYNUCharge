@@ -3,7 +3,7 @@
 import axios from"axios"
 import ChargeRow from "@/components/ChargeRow.vue";
 
-axios.defaults.baseURL = "https://lynucharge.online"
+// axios.defaults.baseURL = "https://lynucharge.online"
 
 export default {
   components: [ChargeRow],
