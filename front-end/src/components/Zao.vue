@@ -15,23 +15,12 @@ export default {
       midName: '枣园中部',
       backOneName: '枣园北部（左边）',
       backTwoName: '枣园北部（右边）',
-      midIsLoaded : true,
-      backOneIsLoaded: true,
-      backTwoIsLoaded: true
+      midIsLoaded : false,
+      backOneIsLoaded: false,
+      backTwoIsLoaded: false
     }
   },
   methods: {
-    // async getAll() {
-    //   this.mid = await axios.get("/api/zao/mid")
-    //   this.mid = this.mid.data
-    //   this.midIsLoaded = false
-    //   this.backOne = await axios.get("/api/zao/backOne")
-    //   this.backOne = this.backOne.data
-    //   this.backOneIsLoaded= false
-    //   this.backTwo = await axios.get("/api/zao/backTwo")
-    //   this.backTwo = this.backTwo.data
-    //   this.backTwoIsLoaded= false
-    // }
 async getAll() {
       try {
         const responses = await Promise.all([
@@ -42,15 +31,18 @@ async getAll() {
         this.mid = responses[0].data
         this.backOne = responses[1].data
         this.backTwo = responses[2].data
-        this.midIsLoaded = false
-        this.backOneIsLoaded= false
-        this.backTwoIsLoaded= false
+        this.midIsLoaded = true
+        this.backOneIsLoaded= true
+        this.backTwoIsLoaded= true
       } catch (error) {
         // 处理错误
         console.error("Error fetching data: ", error);
         this.midIsLoaded = false
         this.backOneIsLoaded= false
         this.backTwoIsLoaded= false
+      } finally {
+        console.log("请求获取结束")
+        console.log(this.mid)
       }
     }
   },

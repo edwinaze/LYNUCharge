@@ -19,8 +19,8 @@ export default {
           <div class="card-body">
             <div class="ad-Accordion4">
               <div class="accordion" id="accordionExample">
-                <Loading v-if="isLoaded"/>
-                <div v-else class="item" v-for="device in devices">
+
+                <div class="item" v-for="device in devices">
                   <div class="item-header" id="headingOnej">
                     <h2 class="mb-0">
                       <button class="btn btn-link collapsed" :style="{backgroundColor: device.hasOffCharger ? '#4da64d':'#22223e'} " type="button" data-toggle="collapse" :data-target="'#e' + device.deviceId" aria-expanded="false" :aria-controls="device.deviceId">
@@ -42,6 +42,7 @@ export default {
                     </div>
                   </div>
                 </div>
+                <Loading v-if="!isLoaded"/>
               </div>
             </div>
           </div>
