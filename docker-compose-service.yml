@@ -1,0 +1,13 @@
+services:
+  lynucharge-backend:
+    build:
+      context: ./LYNUCharge-backend/
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - lynucharge
+
+networks:
+  lynucharge:
+    driver: bridge

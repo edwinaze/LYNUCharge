@@ -1,0 +1,13 @@
+services:
+  lynucharge-mysql:
+    image: mysql:8.4.4
+    env_file:
+      - ./env/mysql.env
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+    networks:
+      - lynucharge
+
+networks:
+  lynucharge:
+    driver: bridge
